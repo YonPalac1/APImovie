@@ -54,6 +54,7 @@ function takeMovie(t){
 			let movieSelect = (this);	
 			let imgSelect = movieSelect.children[0];
 			imgSelect.setAttribute("onclick", "openImg(this)");
+			
 
 			movieSelect = movieSelect.innerHTML;
 			showInfo.innerHTML = movieSelect;
@@ -62,6 +63,18 @@ function takeMovie(t){
 	}
 }
 function openImg(t){
+	let img = t.getAttribute("src");
+	let imgSelect = document.getElementById("imgSelect");
+	let showImg = document.querySelector(".imgShow");
+	let btnClose = document.getElementById("btnClose");
+
+	imgSelect.setAttribute("src", img);
+
+	showImg.classList.toggle("imgShowSelect");	
+
+	btnClose.addEventListener("click", function(){
+		showImg.classList.remove("imgShowSelect");
+	});
 }
 
 function getClassByRate(vote){
