@@ -9,12 +9,18 @@ body{
 header{
 	background-color:#373b69;
 	display:flex;
-	justify-content:flex-end;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
 	padding:1rem;
+	margin-bottom:10px;
+}
+header h2{
+	color:#fff;
 }
 .search{
-	background-color:transparent;
-	color:white;
+	background-color:#fff;
+	color:#000;
 	border: 2px solid #22254b;
 	border-radius:50px;
 	font-family:inherit;
@@ -22,12 +28,28 @@ header{
 	padding:0.5rem 1rem;
 }
 .search::placeholder{
-	color:#7378c5;
+	color:#000;
 }
 .search:focus{
-	background-color:#22254b;
+	background-color:#fff;
 	outline:none;
 }
+form{
+	display:flex;
+	flex-direction:column;
+}
+form button{
+	background-color:#22254b;
+	color:#fff;
+	border: none;
+	border-radius:50px;
+	font-family:inherit;
+	font-size:1rem;
+	padding:0.5rem 1rem;
+	margin-top:10px;
+}
+
+
 main{
 	display:flex;
 	flex-wrap:wrap;
@@ -57,12 +79,6 @@ main{
 .movie-info h3{
 	margin:0;
 }
-.movie-info span{
-	background-color:#22254b;
-	border-radius:3px;
-	padding:0.25rem 0.5rem;
-}
-
 .movie-info span{
 	background-color:#22254b;
 	border-radius:3px;
@@ -98,5 +114,81 @@ main{
 	transform:translateY(0);
 }
 .overview h4{
-	margin-top:0;
+	margin-top:10;
+}
+
+
+section{
+	background-color:#373b69;
+	overflow:auto;
+	left:0;
+	bottom:0;
+	right:0;
+	transition: transform 0.3s ease-in;
+}
+.mostrarInfo{
+	height: 100%;
+	width:1024px;
+	margin:auto;
+	padding:20px;
+}
+.mostrarInfo img{
+	width:200px;
+	float:left;
+}
+.mostrarInfo .movie-info{
+	color:#ccc;
+}
+.mostrarInfo .mostrarInfo .movie-info h3{
+	margin:0;
+}
+.mostrarInfo .movie-info span{
+	background-color:#22254b;
+	border-radius:3px;
+
+}
+
+
+.mostrarInfo .movie-info span.green{
+	color: #0f0;
+}
+
+.mostrarInfo .movie-info span.orange{
+	color:orange;
+}
+
+.mostrarInfo .movie-info span.red{
+	color:red;
+}
+
+.mostrarInfo .overview{
+	background-color:#373b69;
+	color:#fff;
+	padding:2rem;
+	position:relative;
+	max-height: 100%;
+	overflow:auto;
+	left:0;
+	bottom:0;
+	right:0;
+	transform:translateY(0);
+	transition: transform 0.3s ease-in;
+}
+
+.imgSelect{
+	height:100vh;
+	width:100%;
+	background-color:#000;
+	position:fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.imgSelect img{
+	width:300px;
+	z-index:5000;
 }

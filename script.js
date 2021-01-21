@@ -5,6 +5,7 @@ const SEARCHAPI= "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5e
 const main = document.querySelector("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
+const showInfo = document.getElementById("showInfo");
 
 //initial get fav movies
 getMovies(APIURL);
@@ -25,6 +26,7 @@ function showMovies(movies){
 
 		const movieEl = document.createElement("div");
 		movieEl.classList.add("movie");
+		movieEl.setAttribute("onclick", "takeMovie(this)");
 
 		movieEl.innerHTML = `
 				<img src="${IMGPATH + poster_path}" 
@@ -34,13 +36,32 @@ function showMovies(movies){
 					<span class="${getClassByRate(vote_average)}">${vote_average}</span>
 				</div>
 				<div class="overview">
-				<h4>Overview:</h4>
-					${overview}
+					<h4>Description:</h4>
+					"${overview}"<br>
 				</div>
 		`;
 
 		main.appendChild(movieEl);
+
 	});
+}
+
+function takeMovie(t){
+	showInfo.classList.add("mostrarInfo");
+
+	for (var i = 0; i < main.children.length; i++) {
+		main.children[i].addEventListener("click", function(){
+			let movieSelect = (this);	
+			let imgSelect = movieSelect.children[0];
+			imgSelect.setAttribute("onclick", "openImg(this)");
+
+			movieSelect = movieSelect.innerHTML;
+			showInfo.innerHTML = movieSelect;
+
+		});
+	}
+}
+function openImg(t){
 }
 
 function getClassByRate(vote){
